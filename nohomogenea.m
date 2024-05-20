@@ -5,11 +5,12 @@ A = inv(M) * K; % Calcular la matriz A
 
 % Calcular los valores propios de la matriz A
 [eigenVectors, eigenValues] = eig(A);
+
 % Los valores propios están en la diagonal de eigenValues
-omega = sqrt(-diag(eigenValues)); % Frecuencia angular para cada piso
+omega = sqrt(-diag(eigenValues)); %wha Frecuencia angular para cada piso
     
 %omega = 0.15;
-E = 0.5; % Amplitud de la oscilación sísmica
+E = 1; % Amplitud de la oscilación sísmica
 b = [1; 1 ; 1]; % Vector de unos
 
 % Condiciones iniciales (posición y velocidad iniciales)
@@ -18,7 +19,7 @@ v0 = [0; 0; 0]; % Velocidad inicial
 initial_conditions = [x0; v0];
 
 % Tiempo de simulación
-tspan = [0, 2]; % Simular de 0 a 100 segundos
+tspan = [0, 10]; % Simular de 0 a 100 segundos
 
 % Función para las ecuaciones diferenciales
 system_odes = @(t, y) [
